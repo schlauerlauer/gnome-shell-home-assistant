@@ -34,6 +34,7 @@ If you have any feedback feel free to send it to me!
 - [ ] Select multiple entites from available / enabled entities
 - [ ] Update the lists automatically
 - [ ] Add more services than toggle
+- [ ] Add scenes
 - [ ] Use glade template for UI
 - [ ] Notifications?
 
