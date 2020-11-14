@@ -30,6 +30,7 @@ If you have any feedback feel free to send it to me!
 ## Planned Features
 
 - [ ] Show friendly names instead of entity id
+- [ ] Indicate entity state inside indicator
 - [ ] Select multiple entites from available / enabled entities
 - [ ] Update the lists automatically
 - [ ] Add more services than toggle
