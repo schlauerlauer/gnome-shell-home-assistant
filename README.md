@@ -1,4 +1,4 @@
-# gnome-shell-home-assistant
+# Gnome Shell Extension Home Assistant
 
 A Gnome Shell Extension to interact with the Home Assistant API
 
