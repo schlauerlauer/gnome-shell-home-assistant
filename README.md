@@ -2,6 +2,10 @@
 
 A Gnome Shell Extension to interact with the Home Assistant API
 
+I was supprised to see that there was no home assistant extension already.
+So i made one.
+If you have any feedback feel free to send it to me!
+
 > This is an early alpha version, use at own risk ;)
 
 ## Usage
@@ -13,15 +17,23 @@ A Gnome Shell Extension to interact with the Home Assistant API
 
 ![Settings](images/settings.png)
 
-> Alpha stuff incoming: You have to restart the extension if you added / removed entities in the settings
-> Reopen settings to see added / removed entities
+> Alpha stuff incoming: You have to restart the settings if you added / removed entities in the settings.
+> To update the enabled entities in the indicator disable and reenable the extension :)
 
 ## Functionality
 
-- Toggle light and switch entities on and off from the gnome status bar
-- Add and remove entities in the settings
+- [x] Toggle light and switch entities on and off from the gnome status bar
+- [x] Add and remove entities in the settings
 
 ![Indicator.png](images/indicator.png)
+
+## Planned Features
+
+- [ ] Show friendly names instead of entity id
+- [ ] Select multiple entites from available / enabled entities
+- [ ] Update the lists automatically
+- [ ] Add more services than toggle
+- [ ] Use glade template for UI
 
 ## Feedback
 
