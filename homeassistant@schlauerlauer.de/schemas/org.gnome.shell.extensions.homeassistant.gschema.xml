@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.homeassistant" path="/org/gnome/shell/extensions/homeassistant/">
+    <key name="show-indicator" type="b">
+      <default>true</default>
+    </key>
+    <key name="ha-url" type="s">
+      <default>''</default>
+    </key>
+    <key name="ha-key" type="s">
+      <default>''</default>
+    </key>
+    <key name="ha-interval" type="i">
+      <default>60</default>
+    </key>
+    <key name="entities" type="as">
+      <default>[ ]</default>
+    </key>
+  </schema>
+</schemalist>

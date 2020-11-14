@@ -1,0 +1,10 @@
+{
+  "name": "Home Assistant",
+  "description": "Interact with the Home Assistant API",
+  "uuid": "homeassistant@schlauerlauer.de",
+  "version": 1,
+  "shell-version": [
+    "3.38"
+  ],
+  "url": "https://github.com/schlauerlauer/gnome-shell-home-assistant"
+}
