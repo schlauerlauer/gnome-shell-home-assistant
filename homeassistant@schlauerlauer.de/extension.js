@@ -26,7 +26,9 @@ var ExampleIndicator = class ExampleIndicator extends PanelMenu.Button {
         super._init(0.0, `${Me.metadata.name} Indicator`, false);
 
         let icon = new St.Icon({
-            gicon: new Gio.ThemedIcon({name: 'go-home-symbolic'}),
+            gicon: new Gio.ThemedIcon({
+                name: 'go-home-symbolic'
+            }),
             style_class: 'system-status-icon'
         });
         this.actor.add_child(icon);
@@ -76,8 +78,9 @@ var ExampleIndicator = class ExampleIndicator extends PanelMenu.Button {
 }
 
 if (SHELL_MINOR > 30) {
-    ExampleIndicator = GObject.registerClass(
-        {GTypeName: 'ExampleIndicator'},
+    ExampleIndicator = GObject.registerClass({
+            GTypeName: 'ExampleIndicator'
+        },
         ExampleIndicator
     );
 }
@@ -85,11 +88,11 @@ if (SHELL_MINOR > 30) {
 function queryHA(entity, service) {
     let _ha_url = ha_url + "/api/" + service;
     let message = Soup.Message.new('POST', _ha_url);
-    message.set_request("application/json", 2, '{"entity_id":"'+entity+'"}');
+    message.set_request("application/json", 2, '{"entity_id":"' + entity + '"}');
     message.request_headers.append("Authorization", "Bearer " + ha_token);
     session.queue_message(message, function (session, message) {
         if (message.status_code != 200) {
-            log("HA API request unsuccessful, status code: "+ String(message.status_code));
+            log("HA API request unsuccessful, status code: " + String(message.status_code));
         }
     });
 }

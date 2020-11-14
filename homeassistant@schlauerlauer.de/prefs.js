@@ -9,8 +9,7 @@ const Me = ExtensionUtils.getCurrentExtension();
 const Soup = imports.gi.Soup;
 let session = new Soup.Session();
 
-function init() {
-}
+function init() {}
 
 function buildPrefsWidget() {
 
@@ -143,11 +142,11 @@ function buildPrefsWidget() {
         visible: true,
     });
     prefsWidget.attach(connectionStatus, 1, 6, 1, 1);
-    
+
     // Connect the ::clicked signal to save the settings
     saveButton.connect('clicked', () => {
         let url = urlBox.get_text();
-        let token = tokenBox.get_text();    
+        let token = tokenBox.get_text();
         this.settings.set_string('ha-url', url);
         this.settings.set_string('ha-key', token);
         this.settings.set_int('ha-interval', parseInt(updateBox.get_text()));
@@ -186,7 +185,7 @@ function buildPrefsWidget() {
         visible: true
     });
     prefsWidget.attach(toggleEntities, 3, 1, 4, 1);
-    
+
     // STACK
     let stack = new Gtk.Stack({
         visible: true,
@@ -195,21 +194,21 @@ function buildPrefsWidget() {
     stack.add_titled(scrollBox, "available", "Available Entities");
     stack.add_titled(enabledScroll, "enabled", "Enabled Entities");
     prefsWidget.attach(stack, 3, 2, 4, 20);
-    
-   
+
+
     let stackSwitcher = new Gtk.StackSwitcher({
         visible: true,
     });
     prefsWidget.attach(stackSwitcher, 3, 0, 4, 1);
     stackSwitcher.set_stack(stack);
 
-    stack.connect("notify::visible-child", function() {
+    stack.connect("notify::visible-child", function () {
         if (stack.get_visible_child_name() == "available") toggleEntities.set_label("Add selected entities");
         else toggleEntities.set_label("Remove selected entities");
     });
-    
+
     //CONNECT LIST BOX EVENTS
-    toggleEntities.connect('clicked', function(asd) {
+    toggleEntities.connect('clicked', function (asd) {
         let row = stack.get_visible_child().get_child().get_child().get_selected_row();
         let arr = settings.get_strv('entities');
         if (stack.get_visible_child_name() == "available") {
@@ -231,7 +230,7 @@ function addEnabledEntities(listBox, entities) {
             label: entities[i],
             halign: Gtk.Align.START,
             use_markup: true,
-            visible: true   
+            visible: true
         });
         listBox.insert(enabled, i);
     }
@@ -268,7 +267,7 @@ function queryLights(session, url, token, entityBox) {
                     label: json[i]["entity_id"],
                     halign: Gtk.Align.START,
                     use_markup: true,
-                    visible: true   
+                    visible: true
                 });
                 entityBox.insert(entity, i);
             }
