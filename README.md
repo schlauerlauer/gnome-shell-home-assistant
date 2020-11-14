@@ -1,4 +1,4 @@
-# Gnome Shell Extension Home Assistant
+# Gnome Shell Extension for Home Assistant
 
 A Gnome Shell Extension to interact with the Home Assistant API
 
@@ -34,6 +34,7 @@ If you have any feedback feel free to send it to me!
 - [ ] Update the lists automatically
 - [ ] Add more services than toggle
 - [ ] Use glade template for UI
+- [ ] Notifications?
 
 ## Feedback
 
