@@ -2,12 +2,15 @@
 
 const Gio = imports.gi.Gio;
 const Gtk = imports.gi.Gtk;
+const GLib = imports.gi.GLib;
 
 const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
 
 const Soup = imports.gi.Soup;
 let session = new Soup.Session();
+let enabledEntities = {};
+let allEntities = {};
 
 function init() {}
 
@@ -143,6 +146,21 @@ function buildPrefsWidget() {
     });
     prefsWidget.attach(connectionStatus, 1, 6, 1, 1);
 
+    // Add Info Label
+    let infoLabel = new Gtk.Label({
+        label: 'Supported Entity types',
+        halign: Gtk.Align.START,
+        visible: true,
+    });
+    prefsWidget.attach(infoLabel, 0, 7, 1, 1);
+    let typeLabel = new Gtk.Label({
+        label: 'light, switch, scene',
+        halign: Gtk.Align.START,
+        visible: true,
+    });
+    prefsWidget.attach(typeLabel, 1, 7, 1, 1);
+
+
     // Connect the ::clicked signal to save the settings
     saveButton.connect('clicked', () => {
         let url = urlBox.get_text();
@@ -165,7 +183,9 @@ function buildPrefsWidget() {
         visible: true,
     });
     scrollBox.add(entityBox);
-    queryLights(session, url, token, entityBox);
+    queryEntities(session, url, token, entityBox);
+
+    unpackEnabled();
 
     // ENABLED ENTITIES
     let enabledScroll = new Gtk.ScrolledWindow({
@@ -176,8 +196,7 @@ function buildPrefsWidget() {
         visible: true,
     });
     enabledScroll.add(listBox);
-    let entities = settings.get_strv('entities');
-    addEnabledEntities(listBox, entities);
+    updateEnabledEntities(listBox, enabledEntities);
 
     // Create a 'Toggle Entities' button
     let toggleEntities = new Gtk.Button({
@@ -210,29 +229,35 @@ function buildPrefsWidget() {
     //CONNECT LIST BOX EVENTS
     toggleEntities.connect('clicked', function (asd) {
         let row = stack.get_visible_child().get_child().get_child().get_selected_row();
-        let arr = settings.get_strv('entities');
+        let text = row.get_child().get_text();
         if (stack.get_visible_child_name() == "available") {
-            let label = row.get_child().get_text();
-            arr.push(label);
+            enabledEntities[text] = allEntities[text];  
+            let enabled = new Gtk.Label({
+                label: text,
+                halign: Gtk.Align.START,
+                use_markup: true,
+                visible: true
+            });
+            listBox.insert(enabled, -1);
         } else {
-            let index = row.get_index();
-            arr.splice(index, 1);
+            delete enabledEntities[text];
+            listBox.remove(row);
         }
-        settings.set_strv('entities', arr);
+        saveEnabled();
     });
 
     return prefsWidget;
 }
 
-function addEnabledEntities(listBox, entities) {
-    for (let i = 0; i < entities.length; i++) {
+function updateEnabledEntities(listBox, entities) {
+    for (let entity in entities) {
         let enabled = new Gtk.Label({
-            label: entities[i],
+            label: entity,
             halign: Gtk.Align.START,
             use_markup: true,
             visible: true
         });
-        listBox.insert(enabled, i);
+        listBox.insert(enabled, -1);
     }
 }
 
@@ -255,12 +280,13 @@ function testConnection(session, label, url, token) {
     });
 }
 
-function queryLights(session, url, token, entityBox) {
+function queryEntities(session, url, token, entityBox) {
     url += "/api/states";
     let message = Soup.form_request_new_from_hash('GET', url, {});
     message.request_headers.append("Authorization", "Bearer " + token);
     session.queue_message(message, function (session, message) {
         if (message.status_code == 200) {
+            allEntities = {};
             let json = JSON.parse(message.response_body.data);
             for (let i = 0; i < json.length; i++) {
                 let entity = new Gtk.Label({
@@ -270,7 +296,19 @@ function queryLights(session, url, token, entityBox) {
                     visible: true
                 });
                 entityBox.insert(entity, i);
+                allEntities[json[i]["entity_id"]] = json[i]["attributes"]["friendly_name"];
             }
         }
     });
+}
+
+function unpackEnabled() {
+    enabledEntities = this.settings.get_value('entities').deep_unpack();
+}
+
+function saveEnabled() {
+    this.settings.set_value(
+        'entities',
+        new GLib.Variant('a{ss}', enabledEntities),
+    );
 }
