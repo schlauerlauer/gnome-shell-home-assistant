@@ -6,7 +6,9 @@ I was supprised to see that there was no home assistant extension already.
 So i made one.
 If you have any feedback feel free to send it to me!
 
-> This is an early alpha version, use at own risk ;)
+> Tested & working on Fedora 33 with Gnome 3.38.1
+> 
+> But this is still in alpha, use at own risk.
 
 ## Usage
 
