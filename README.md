@@ -21,9 +21,9 @@ If you have any feedback feel free to send it to me!
 
 ## Functionality
 
-- [x] Toggle light and switch entities on and off from the gnome status bar
-- [x] Activate Scenes
-- [x] Add and remove entities in the settings
+- Toggle light and switch entities on and off from the gnome status bar
+- Activate Scenes
+- Add and remove entities in the settings
 
 ![Indicator.png](images/indicator.png)
 
