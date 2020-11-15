@@ -32,11 +32,15 @@ If you have any feedback feel free to send it to me!
 - [ ] Show friendly names instead of entity id
 - [ ] Indicate entity state inside indicator
 - [ ] Select multiple entites from available / enabled entities
-- [ ] Update the lists automatically
 - [ ] Add more services than toggle
 - [ ] Add scenes
-- [ ] Use glade template for UI
 - [ ] Notifications?
+- [ ] Update the lists automatically
+
+## Planned Optimizations
+
+- [ ] Use glade template for UI
+- [ ] Seperate api request to function
 
 ## Feedback
 
