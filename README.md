@@ -8,6 +8,14 @@ You can activate scenes and toggle lights and switches!
 > 
 > but this is still in alpha, use at own risk.
 
+## Functionality
+
+- Toggle light and switch entities on and off from the gnome status bar
+- Activate Scenes
+- Add and remove entities in the settings
+
+![Indicator.png](images/indicator.png)
+
 ## Usage
 
 - Open settings and insert your Home Assistant URL
@@ -16,14 +24,6 @@ You can activate scenes and toggle lights and switches!
 - Select Entities in the "Available Entities" Panel and click "Add Entities"
 
 ![Settings](images/settings.png)
-
-## Functionality
-
-- Toggle light and switch entities on and off from the gnome status bar
-- Activate Scenes
-- Add and remove entities in the settings
-
-![Indicator.png](images/indicator.png)
 
 ## Todos
 
