@@ -27,7 +27,8 @@ If you have any feedback feel free to send it to me!
 
 ## Todos
 
-- [ ] Indicate entity state inside indicator
+- [ ] Show entity state inside indicator
+- [ ] Show icons in indicator
 - [ ] Select multiple entites from available / enabled entities
 - [ ] Add configurable services
 - [ ] Show Notifications?
