@@ -27,17 +27,19 @@ If you have any feedback feel free to send it to me!
 
 ## Todos
 
+- [x] Update the lists automatically
+- [x] Show friendly names instead of entity id
+- [x] Add Scenes
 - [ ] Show entity state inside indicator
 - [ ] Show icons in indicator
+- [ ] Sortable "enabled entities" list
+- [ ] Searchable / filterable "all entities" list
 - [ ] Select multiple entites from available / enabled entities
 - [ ] Add configurable services
 - [ ] Show Notifications?
 - [ ] Use glade template for UI
 - [ ] Seperate api request to function
 - [ ] Remove enabled entities from all entities list
-- [x] Add Scenes
-- [x] Update the lists automatically
-- [x] Show friendly names instead of entity id
 
 ## Feedback
 
