@@ -46,7 +46,7 @@ function buildPrefsWidget() {
 
     // Create a label & switch for `show-indicator`
     let toggleLabel = new Gtk.Label({
-        label: 'Show Extension Indicator:',
+        label: 'Show Extension Indicator',
         halign: Gtk.Align.START,
         visible: true
     });
@@ -70,7 +70,7 @@ function buildPrefsWidget() {
 
     // Home Assistant URL Input
     let urlLabel = new Gtk.Label({
-        label: 'Home Assistant URL:',
+        label: 'Home Assistant URL',
         halign: Gtk.Align.START,
         visible: true
     })
@@ -86,7 +86,7 @@ function buildPrefsWidget() {
 
     // Home Assistant Token Input
     let tokenLabel = new Gtk.Label({
-        label: 'Home Assistant Access Token:',
+        label: 'Home Assistant Access Token',
         halign: Gtk.Align.START,
         visible: true,
     })
@@ -102,7 +102,7 @@ function buildPrefsWidget() {
 
     // Home Assistant Update Input
     let updateLabel = new Gtk.Label({
-        label: 'Entity update interval:',
+        label: 'Entity update interval',
         halign: Gtk.Align.START,
         visible: true,
     })
@@ -118,7 +118,7 @@ function buildPrefsWidget() {
 
     // Create a label to describe our button and add it to the prefsWidget
     let saveLabel = new Gtk.Label({
-        label: 'Save Settings:',
+        label: 'Save Settings',
         halign: Gtk.Align.START,
         visible: true
     });
@@ -133,7 +133,7 @@ function buildPrefsWidget() {
 
     // Create a label to describe our button and add it to the prefsWidget
     let connectionLabel = new Gtk.Label({
-        label: 'Status:',
+        label: 'Status',
         halign: Gtk.Align.START,
         visible: true,
     });
