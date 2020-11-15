@@ -1,14 +1,12 @@
 # Gnome Shell Extension for Home Assistant
 
-A Gnome Shell Extension to interact with the Home Assistant API
+A Gnome Shell Extension to interact with the Home Assistant API.
 
-I was supprised to see that there was no home assistant extension already.
-So i made one.
-If you have any feedback feel free to send it to me!
+You can activate scenes and toggle lights and switches!
 
 > Tested & working on Fedora 33 with Gnome 3.38.1
 > 
-> But this is still in alpha, use at own risk.
+> but this is still in alpha, use at own risk.
 
 ## Usage
 
