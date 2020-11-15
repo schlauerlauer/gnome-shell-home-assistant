@@ -8,6 +8,7 @@ const St = imports.gi.St;
 const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
 const Main = imports.ui.main;
+const Mainloop = imports.mainloop;
 const PanelMenu = imports.ui.panelMenu;
 
 // For compatibility checks, as described above
@@ -46,20 +47,16 @@ var ExampleIndicator = class ExampleIndicator extends PanelMenu.Button {
         ha_url = this.settings.get_string('ha-url');
         ha_token = this.settings.get_string('ha-key');
 
-        // Add a menu item for each entity in setting
-        let entities = this.settings.get_strv('entities');
-        for (let i = 0; i < entities.length; i++) {
-            this.menu.addAction(
-                entities[i],
-                this.toggleEntityState.bind(null, entities[i]),
-                null
-            );
-        }
-
-        // TODO periodically connect to changes in settings
+        this.settings.connect(
+            'changed::entities',
+            this._updateMenu.bind(this)
+        );
+        this._updateMenu();
+        this._updateStates();
+        this._addTimer();
     }
 
-    toggleEntityState(entity) {
+    _toggleEntityState(entity) {
         let str = entity.split(".");
         let service = "services/";
         switch (str[0]) {
@@ -69,20 +66,38 @@ var ExampleIndicator = class ExampleIndicator extends PanelMenu.Button {
             case "switch":
                 service += "switch/toggle";
                 break;
+            case "scene":
+                service += "scene/turn_on";
             default:
                 log(str[0] + " domain not supported yet.");
                 break;
         }
         queryHA(entity, service);
     }
-}
 
-if (SHELL_MINOR > 30) {
-    ExampleIndicator = GObject.registerClass({
-            GTypeName: 'ExampleIndicator'
-        },
-        ExampleIndicator
-    );
+    _addTimer() {
+        this._timeoutId = Mainloop.timeout_add_seconds(this.settings.get_int('ha-interval'), () => {
+            this._updateStates();
+            return true;
+        });
+    }
+    
+    _updateMenu(settings, key) {
+        // Read new settings
+        let entities = this.settings.get_value('entities').deep_unpack();
+        // Add a menu item for each entity in setting
+        this.menu.removeAll(); // FIXME
+        for (let entity in entities) {
+            this.menu.addAction(
+                entities[entity],
+                this._toggleEntityState.bind(null, entity),
+                null
+            );
+        }
+    }
+
+    _updateStates() {
+    }
 }
 
 function queryHA(entity, service) {
@@ -95,6 +110,14 @@ function queryHA(entity, service) {
             log("HA API request unsuccessful, status code: " + String(message.status_code));
         }
     });
+}
+
+if (SHELL_MINOR > 30) {
+    ExampleIndicator = GObject.registerClass({
+            GTypeName: 'ExampleIndicator'
+        },
+        ExampleIndicator
+    );
 }
 
 function init() {
