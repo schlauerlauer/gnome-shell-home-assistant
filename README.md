@@ -32,6 +32,8 @@ If you have any feedback feel free to send it to me!
 - [x] Add Scenes
 - [ ] Show entity state inside indicator
 - [ ] Show icons in indicator
+- [ ] Add "Open Settings" menu item
+- [ ] Add "Open Home Assistant Web UI" menu item
 - [ ] Sortable "enabled entities" list
 - [ ] Searchable / filterable "all entities" list
 - [ ] Select multiple entites from available / enabled entities
