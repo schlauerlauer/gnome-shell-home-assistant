@@ -13,8 +13,8 @@
     <key name="ha-interval" type="i">
       <default>60</default>
     </key>
-    <key name="entities" type="as">
-      <default>[ ]</default>
+    <key name="entities" type="a{ss}">
+      <default>{}</default>
     </key>
   </schema>
 </schemalist>
