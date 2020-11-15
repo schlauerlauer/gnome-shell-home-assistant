@@ -17,30 +17,26 @@ If you have any feedback feel free to send it to me!
 
 ![Settings](images/settings.png)
 
-> Alpha stuff incoming: You have to restart the settings if you added / removed entities in the settings.
-> To update the enabled entities in the indicator disable and reenable the extension :)
-
 ## Functionality
 
 - [x] Toggle light and switch entities on and off from the gnome status bar
+- [x] Activate Scenes
 - [x] Add and remove entities in the settings
 
 ![Indicator.png](images/indicator.png)
 
-## Planned Features
+## Todos
 
-- [ ] Show friendly names instead of entity id
 - [ ] Indicate entity state inside indicator
 - [ ] Select multiple entites from available / enabled entities
-- [ ] Add more services than toggle
-- [ ] Add scenes
-- [ ] Notifications?
-- [ ] Update the lists automatically
-
-## Planned Optimizations
-
+- [ ] Add configurable services
+- [ ] Show Notifications?
 - [ ] Use glade template for UI
 - [ ] Seperate api request to function
+- [ ] Remove enabled entities from all entities list
+- [x] Add Scenes
+- [x] Update the lists automatically
+- [x] Show friendly names instead of entity id
 
 ## Feedback
 
