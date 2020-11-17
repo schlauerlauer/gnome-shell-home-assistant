@@ -77,7 +77,7 @@ function buildPrefsWidget() {
     prefsWidget.attach(urlLabel, 0, 2, 1, 1);
 
     let urlBox = new Gtk.Entry({
-        halign: Gtk.Align.END,
+        halign: Gtk.Align.START,
         visible: true,
         text: this.settings.get_string('ha-url'),
     })
@@ -93,7 +93,7 @@ function buildPrefsWidget() {
     prefsWidget.attach(tokenLabel, 0, 3, 1, 1);
 
     let tokenBox = new Gtk.Entry({
-        halign: Gtk.Align.END,
+        halign: Gtk.Align.START,
         visible: true,
         text: this.settings.get_string('ha-key'),
     })
@@ -109,7 +109,7 @@ function buildPrefsWidget() {
     prefsWidget.attach(updateLabel, 0, 4, 1, 1);
 
     let updateBox = new Gtk.Entry({
-        halign: Gtk.Align.END,
+        halign: Gtk.Align.START,
         visible: true,
         text: String(this.settings.get_int('ha-interval')),
     })
@@ -148,13 +148,13 @@ function buildPrefsWidget() {
 
     // Add Info Label
     let infoLabel = new Gtk.Label({
-        label: 'Supported Entity types',
+        label: 'Supported Services',
         halign: Gtk.Align.START,
         visible: true,
     });
     prefsWidget.attach(infoLabel, 0, 7, 1, 1);
     let typeLabel = new Gtk.Label({
-        label: 'light, switch, scene',
+        label: 'light/toggle\nswitch/toggle\nscene/turn_on\nautomation/trigger',
         halign: Gtk.Align.START,
         visible: true,
     });
