@@ -68,8 +68,10 @@ var ExampleIndicator = class ExampleIndicator extends PanelMenu.Button {
                 break;
             case "scene":
                 service += "scene/turn_on";
+                break;
             case "automation":
                 service += "automation/trigger";
+                break;
             default:
                 log(str[0] + " domain not supported yet.");
                 break;
