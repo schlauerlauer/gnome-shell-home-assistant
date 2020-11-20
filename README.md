@@ -50,11 +50,13 @@ You can activate scenes and toggle lights and switches!
 
 Feel free to send feature requests and open issues
 
-## Installation from [extensions.gnome.org](https://extensions.gnome.org)
+## Installation
+
+### Install from [extensions.gnome.org](https://extensions.gnome.org)
 
 > Extension pending
 
-## Manual installation
+### Manual install
 
 1. `git clone https://gitlab.com/schlauerlauer/gnome-shell-home-assistant.git`
 2. `cd gnome-shell-home-assistant/homeassistant@schlauerlauer.de`
