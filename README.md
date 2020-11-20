@@ -30,6 +30,8 @@ You can activate scenes and toggle lights and switches!
 - [x] Update the lists automatically
 - [x] Show friendly names instead of entity id
 - [x] Add Scenes
+- [ ] Autodiscover HA Instance
+- [ ] Nicer Settings Layout
 - [ ] Show entity state inside indicator
 - [ ] Show icons in indicator
 - [ ] Add "Open Settings" menu item
@@ -37,16 +39,28 @@ You can activate scenes and toggle lights and switches!
 - [ ] Sortable "enabled entities" list
 - [ ] Searchable / filterable "all entities" list
 - [ ] Select multiple entites from available / enabled entities
+- [ ] Connect to WebSocket API
+- [ ] Subscribe to custom events
+- [ ] Show Notifications
 - [ ] Add configurable services
-- [ ] Show Notifications?
-- [ ] Use glade template for UI
 - [ ] Seperate api request to function
 - [ ] Remove enabled entities from all entities list
 
 ## Feedback
 
-Feel free to send feedback and/or issues
+Feel free to send feature requests and open issues
 
-## Note
+## Installation from [extensions.gnome.org](https://extensions.gnome.org)
 
-This Project is not affiliated or endorsed in any way by Home Assistant.
+> Extension pending
+
+## Manual installation
+
+1. `git clone https://gitlab.com/schlauerlauer/gnome-shell-home-assistant.git`
+2. `cd gnome-shell-home-assistant/homeassistant@schlauerlauer.de`
+3. `zip -r homeassistant@schlauerlauer.de.zip . --exclude=.git/\* --exclude=*.sh --exclude=*.zip`
+4. `gnome-extensions install homeassistant@schlauerlauer.de.zip`
+5. `gnome-extensions enable homeassistant@schlauerlauer.de`
+6. Reload Gnome Shell
+   - On X11 press `Alt+F2`, Type in `r` and press `Enter`
+   - On Wayland Log out & Log in
