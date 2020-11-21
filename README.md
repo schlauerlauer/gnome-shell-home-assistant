@@ -4,9 +4,9 @@ A Gnome Shell Extension to interact with the Home Assistant API.
 
 You can activate scenes and toggle lights and switches!
 
+![Indicator.png](images/indicator.png)
+
 > Tested & working on Fedora 33 with Gnome 3.38.1
-> 
-> but this is still in alpha, use at own risk.
 
 ## Functionality
 
@@ -14,7 +14,7 @@ You can activate scenes and toggle lights and switches!
 - Activate Scenes
 - Add and remove entities in the settings
 
-![Indicator.png](images/indicator.png)
+![Settings](images/settings.png)
 
 ## Usage
 
@@ -23,7 +23,24 @@ You can activate scenes and toggle lights and switches!
 - Click "Save & Test Connection"
 - Select Entities in the "Available Entities" Panel and click "Add Entities"
 
-![Settings](images/settings.png)
+
+
+## Installation
+
+### Install from [extensions.gnome.org](https://extensions.gnome.org)
+
+> Extension pending
+
+### Manual install
+
+1. `git clone https://gitlab.com/schlauerlauer/gnome-shell-home-assistant.git`
+2. `cd gnome-shell-home-assistant/homeassistant@schlauerlauer.de`
+3. `zip -r homeassistant@schlauerlauer.de.zip . --exclude=.git/\* --exclude=*.sh --exclude=*.zip`
+4. `gnome-extensions install homeassistant@schlauerlauer.de.zip`
+5. `gnome-extensions enable homeassistant@schlauerlauer.de`
+6. Reload Gnome Shell
+   - On X11 press `Alt+F2`, Type in `r` and press `Enter`
+   - On Wayland Log out & Log in
 
 ## Todos
 
@@ -49,20 +66,3 @@ You can activate scenes and toggle lights and switches!
 ## Feedback
 
 Feel free to send feature requests and open issues
-
-## Installation
-
-### Install from [extensions.gnome.org](https://extensions.gnome.org)
-
-> Extension pending
-
-### Manual install
-
-1. `git clone https://gitlab.com/schlauerlauer/gnome-shell-home-assistant.git`
-2. `cd gnome-shell-home-assistant/homeassistant@schlauerlauer.de`
-3. `zip -r homeassistant@schlauerlauer.de.zip . --exclude=.git/\* --exclude=*.sh --exclude=*.zip`
-4. `gnome-extensions install homeassistant@schlauerlauer.de.zip`
-5. `gnome-extensions enable homeassistant@schlauerlauer.de`
-6. Reload Gnome Shell
-   - On X11 press `Alt+F2`, Type in `r` and press `Enter`
-   - On Wayland Log out & Log in
