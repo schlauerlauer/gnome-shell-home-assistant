@@ -110,8 +110,8 @@ function queryHA(entity, service) {
     message.set_request("application/json", 2, '{"entity_id":"' + entity + '"}');
     message.request_headers.append("Authorization", "Bearer " + ha_token);
     session.queue_message(message, function (session, message) {
-        if (message.status_code != 200) {
-            log("HA API request unsuccessful, status code: " + String(message.status_code));
+        if (message.status_code != Soup.Status.OK) {
+            log("HA API request unsuccessful, " + Soup.Status.get_phrase(message.status_code));
         }
     });
 }

@@ -271,11 +271,11 @@ function testConnection(session, label, url, token) {
         let json = {};
         json["version"] = "unknown";
         let code = "";
-        if (message.status_code == 200) {
+        code = Soup.Status.get_phrase(message.status_code);
+        if (message.status_code == Soup.Status.OK) {
             json = JSON.parse(message.response_body.data);
-            code = "OK, HA version: " + json["version"];
-        } else if (message.status_code == 401) code = "wrong token?";
-        else code = "Something's wrong";
+            code += ", Version: " + json["version"];
+        }
         label.set_text(String(message.status_code) + " " + code);
     });
 }
@@ -285,7 +285,7 @@ function queryEntities(session, url, token, entityBox) {
     let message = Soup.form_request_new_from_hash('GET', url, {});
     message.request_headers.append("Authorization", "Bearer " + token);
     session.queue_message(message, function (session, message) {
-        if (message.status_code == 200) {
+        if (message.status_code == Soup.Status.OK) {
             allEntities = {};
             let json = JSON.parse(message.response_body.data);
             for (let i = 0; i < json.length; i++) {
