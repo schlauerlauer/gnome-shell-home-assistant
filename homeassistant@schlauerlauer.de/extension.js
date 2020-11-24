@@ -21,7 +21,7 @@ var indicator = null;
 let ha_url = "";
 let ha_token = "";
 
-var ExampleIndicator = class ExampleIndicator extends PanelMenu.Button {
+var HomeAssistantIndicator = class HomeAssistantIndicator extends PanelMenu.Button {
 
     _init() {
         super._init(0.0, `${Me.metadata.name} Indicator`, false);
@@ -117,10 +117,10 @@ function queryHA(entity, service) {
 }
 
 if (SHELL_MINOR > 30) {
-    ExampleIndicator = GObject.registerClass({
-            GTypeName: 'ExampleIndicator'
+    HomeAssistantIndicator = GObject.registerClass({
+            GTypeName: 'HomeAssistantIndicator'
         },
-        ExampleIndicator
+        HomeAssistantIndicator
     );
 }
 
@@ -130,7 +130,7 @@ function init() {
 
 function enable() {
     log(`enabling ${Me.metadata.name} version ${Me.metadata.version}`);
-    indicator = new ExampleIndicator();
+    indicator = new HomeAssistantIndicator();
     Main.panel.addToStatusArea(`${Me.metadata.name} Indicator`, indicator);
 }
 
