@@ -51,7 +51,6 @@ var HomeAssistantIndicator = class HomeAssistantIndicator extends PanelMenu.Butt
             this._updateMenu.bind(this)
         );
         this._updateMenu();
-        this._updateStates();
     }
 
     _toggleEntityState(entity) {
@@ -91,8 +90,6 @@ var HomeAssistantIndicator = class HomeAssistantIndicator extends PanelMenu.Butt
         }
     }
 
-    _updateStates() {
-    }
 }
 
 function queryHA(entity, service) {
