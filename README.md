@@ -6,7 +6,7 @@ You can activate scenes and toggle lights and switches!
 
 ![Indicator.png](images/indicator.png)
 
-> Tested & working on Fedora 33 with Gnome 3.38.1
+> If you are on GitHub, this is a mirror of [gitlab.com/schlauerlauer/gnome-shell-home-assistant](https://gitlab.com/schlauerlauer/gnome-shell-home-assistant).
 
 ## Functionality
 
