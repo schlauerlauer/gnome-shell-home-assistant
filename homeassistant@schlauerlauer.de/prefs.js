@@ -160,17 +160,6 @@ function buildPrefsWidget() {
     });
     prefsWidget.attach(typeLabel, 1, 7, 1, 1);
 
-
-    // Connect the ::clicked signal to save the settings
-    saveButton.connect('clicked', () => {
-        let url = urlBox.get_text();
-        let token = tokenBox.get_text();
-        this.settings.set_string('ha-url', url);
-        this.settings.set_string('ha-key', token);
-        this.settings.set_int('ha-interval', parseInt(updateBox.get_text()));
-        testConnection(session, connectionStatus, url, token);
-    });
-
     let url = urlBox.get_text();
     let token = tokenBox.get_text();
 
@@ -184,6 +173,18 @@ function buildPrefsWidget() {
     });
     scrollBox.add(entityBox);
     queryEntities(session, url, token, entityBox);
+    
+    // Connect the ::clicked signal to save the settings
+    saveButton.connect('clicked', () => {
+        let url = urlBox.get_text();
+        let token = tokenBox.get_text();
+        this.settings.set_string('ha-url', url);
+        this.settings.set_string('ha-key', token);
+        this.settings.set_int('ha-interval', parseInt(updateBox.get_text()));
+        testConnection(session, connectionStatus, url, token);
+        queryEntities(session, url, token, entityBox);
+    });
+
 
     unpackEnabled();
 
