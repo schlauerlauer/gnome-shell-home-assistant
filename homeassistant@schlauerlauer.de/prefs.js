@@ -281,25 +281,29 @@ function testConnection(session, label, url, token) {
 }
 
 function queryEntities(session, url, token, entityBox) {
-    url += "/api/states";
-    let message = Soup.form_request_new_from_hash('GET', url, {});
-    message.request_headers.append("Authorization", "Bearer " + token);
-    session.queue_message(message, function (session, message) {
-        if (message.status_code == Soup.Status.OK) {
-            allEntities = {};
-            let json = JSON.parse(message.response_body.data);
-            for (let i = 0; i < json.length; i++) {
-                let entity = new Gtk.Label({
-                    label: json[i]["entity_id"],
-                    halign: Gtk.Align.START,
-                    use_markup: true,
-                    visible: true
-                });
-                entityBox.insert(entity, i);
-                allEntities[json[i]["entity_id"]] = json[i]["attributes"]["friendly_name"];
-            }
+    if (url != "") {
+        url += "/api/states";
+        let message = Soup.form_request_new_from_hash('GET', url, {});
+        if (message != null) {
+            message.request_headers.append("Authorization", "Bearer " + token);
+            session.queue_message(message, function (session, message) {
+                if (message.status_code == Soup.Status.OK) {
+                    allEntities = {};
+                    let json = JSON.parse(message.response_body.data);
+                    for (let i = 0; i < json.length; i++) {
+                        let entity = new Gtk.Label({
+                            label: json[i]["entity_id"],
+                            halign: Gtk.Align.START,
+                            use_markup: true,
+                            visible: true
+                        });
+                        entityBox.insert(entity, i);
+                        allEntities[json[i]["entity_id"]] = json[i]["attributes"]["friendly_name"];
+                    }
+                }
+            });
         }
-    });
+    }
 }
 
 function unpackEnabled() {
