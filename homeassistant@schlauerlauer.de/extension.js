@@ -11,7 +11,6 @@ const Main = imports.ui.main;
 const Mainloop = imports.mainloop;
 const PanelMenu = imports.ui.panelMenu;
 
-// For compatibility checks, as described above
 const Config = imports.misc.config;
 const SHELL_MINOR = parseInt(Config.PACKAGE_VERSION.split('.')[1]);
 const Soup = imports.gi.Soup;
@@ -53,7 +52,6 @@ var HomeAssistantIndicator = class HomeAssistantIndicator extends PanelMenu.Butt
         );
         this._updateMenu();
         this._updateStates();
-        this._addTimer();
     }
 
     _toggleEntityState(entity) {
@@ -77,13 +75,6 @@ var HomeAssistantIndicator = class HomeAssistantIndicator extends PanelMenu.Butt
                 break;
         }
         queryHA(entity, service);
-    }
-
-    _addTimer() {
-        this._timeoutId = Mainloop.timeout_add_seconds(this.settings.get_int('ha-interval'), () => {
-            this._updateStates();
-            return true;
-        });
     }
     
     _updateMenu(settings, key) {
