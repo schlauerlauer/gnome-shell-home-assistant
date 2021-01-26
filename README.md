@@ -44,24 +44,10 @@ You can activate scenes and toggle lights and switches!
 
 ## Todos
 
-- [x] Update the lists automatically
-- [x] Show friendly names instead of entity id
-- [x] Add Scenes
-- [ ] Autodiscover HA Instance
-- [ ] Nicer Settings Layout
-- [ ] Show entity state inside indicator
-- [ ] Show icons in indicator
-- [ ] Add "Open Settings" menu item
-- [ ] Add "Open Home Assistant Web UI" menu item
-- [ ] Sortable "enabled entities" list
-- [ ] Searchable / filterable "all entities" list
-- [ ] Select multiple entites from available / enabled entities
-- [ ] Connect to WebSocket API
+> see Issues
+
 - [ ] Subscribe to custom events
-- [ ] Show Notifications
 - [ ] Add configurable services
-- [ ] Seperate api request to function
-- [ ] Remove enabled entities from all entities list
 
 ## Feedback
 
