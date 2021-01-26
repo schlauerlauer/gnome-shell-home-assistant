@@ -126,7 +126,7 @@ function buildPrefsWidget() {
 
     // Create a 'Save' button and add it to the prefsWidget
     let saveButton = new Gtk.Button({
-        label: 'Save & Test Connection',
+        label: 'Save & Update Entities',
         visible: true
     });
     prefsWidget.attach(saveButton, 1, 5, 1, 1);
@@ -173,7 +173,7 @@ function buildPrefsWidget() {
     });
     scrollBox.add(entityBox);
     queryEntities(session, url, token, entityBox);
-    
+
     // Connect the ::clicked signal to save the settings
     saveButton.connect('clicked', () => {
         let url = urlBox.get_text();
